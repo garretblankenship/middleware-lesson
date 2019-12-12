@@ -1,6 +1,8 @@
 const products = [];
 
-async function index(req, res) {
+async function index(req, res, next) {
+    return next(new HttpError(401, "You are not logged in"));
+    console.log("here");
     res.json(products);
 }
 
